@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import Player from './Player'
+import PlayerForm from './PlayerForm'
 
 class Scoreboard extends PureComponent {
   state = {
@@ -48,6 +49,7 @@ class Scoreboard extends PureComponent {
     return (
       <div>
         { this.renderPlayers() }
+        <PlayerForm />
       </div>
     );
   }
