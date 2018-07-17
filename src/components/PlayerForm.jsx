@@ -7,7 +7,8 @@ class PlayerForm extends Component {
   
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state.newPlayerName)
+    this.props.addNewPlayer(this.state.newPlayerName)
+    this.setState({ newPlayerName: '' })
   }
 
   handleChange = (event) => {
@@ -15,11 +16,15 @@ class PlayerForm extends Component {
   }
 
   render(){
+
     return (
       <div > 
         <form onSubmit={this.handleSubmit} >
           <label>name</label>
-          <input onChange={this.handleChange} value={this.state.newPlayerName}/>
+          <input 
+            onChange={this.handleChange} 
+            value={this.state.newPlayerName}
+          />
           <input type='submit'/>
         </form>
       </div>

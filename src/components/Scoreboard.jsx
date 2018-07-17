@@ -28,6 +28,15 @@ class Scoreboard extends PureComponent {
     }) 
   }
 
+  addNewPlayer = (name) => {
+    const newPlayer = {
+      name: name,
+      score: 0 
+    }
+    const newPlayers = this.state.players.concat(newPlayer)
+    this.setState({ players: newPlayers })
+  }
+
   incrementScore = (playerName) => {
     const newPlayers = this.state.players.map(player => {
       if(player.name === playerName){
@@ -45,11 +54,10 @@ class Scoreboard extends PureComponent {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
         { this.renderPlayers() }
-        <PlayerForm />
+        <PlayerForm addNewPlayer={this.addNewPlayer}/>
       </div>
     );
   }
